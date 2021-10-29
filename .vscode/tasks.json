@@ -1,0 +1,85 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "npm: dev - client",
+      "detail": "vite dev",
+      "type": "npm",
+      "script": "dev",
+      "path": "client/",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": true,
+        "clear": false,
+        "group": "dev"
+      },
+      "problemMatcher": "$tsc-watch"
+    },
+    {
+      "label": "npm: dev - server",
+      "detail": "ts-node-dev app.ts",
+      "type": "npm",
+      "script": "dev",
+      "path": "server/",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": true,
+        "clear": false,
+        "group": "dev"
+      },
+      "problemMatcher": "$tsc-watch"
+    },
+    {
+      "label": "npm: build - client",
+      "detail": "tsc && vite build",
+      "type": "npm",
+      "script": "build",
+      "path": "client/",
+      "problemMatcher": "$tsc",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": true,
+        "clear": false,
+        "group": "build"
+      }
+    },
+    {
+      "label": "npm: build - server",
+      "detail": "tsc --p tsconfig.json",
+      "type": "npm",
+      "script": "build",
+      "path": "server/",
+      "problemMatcher": "$tsc",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": true,
+        "clear": false,
+        "group": "build"
+      }
+    },
+    {
+      "label": "npm: dev",
+      "detail": "vite dev && ts-node-dev app.ts",
+      "dependsOn": ["npm: dev - client", "npm: dev - server"],
+      "dependsOrder": "parallel",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
