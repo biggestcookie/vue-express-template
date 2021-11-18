@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "vue-express-ts-api",
   "version": "1.0.0",
   "description": "",
   "main": "dist/app.js",
@@ -11,7 +11,7 @@
     "lint": "eslint src/**/*.ts"
   },
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "dependencies": {
     "@types/express": "^4.17.13",

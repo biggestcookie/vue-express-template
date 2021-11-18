@@ -1,6 +1,6 @@
 {
-  "name": "react-vite-ts",
-  "version": "0.0.0",
+  "name": "vue-express-ts-ui",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
