@@ -1,10 +1,10 @@
-import { Request, Response, Router } from "express";
-import { UserEntity } from "../db/user-entity";
 import {
   SpeedrunCreateRequest,
   SpeedrunData,
-} from "../../../shared/models/speedrun-data";
+} from "@shared/models/speedrun-data";
+import { Request, Response, Router } from "express";
 import { SpeedrunEntity } from "../db/speedrun-entity";
+import { UserEntity } from "../db/user-entity";
 
 const router = Router();
 

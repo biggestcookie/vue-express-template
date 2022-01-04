@@ -3,7 +3,7 @@
     <div class="navbar-brand">
       <a href="/" class="navbar-item" @click="toggleNavbar(false)">
         <img src="../assets/images/logo.svg" class="app-logo" alt="logo" />
-        <h1 class="is-size-5">React App</h1>
+        <h1 class="is-size-5">Vue App</h1>
       </a>
       <a
         class="navbar-burger burger"

@@ -4,23 +4,25 @@
     "postinstall": "npm --prefix ./client install && npm --prefix ./server install",
     "dev:client": "npm --prefix ./client run dev",
     "dev:server": "npm --prefix ./server run dev",
-    "build": "npm --prefix ./client run build && npm --prefix ./server run build",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "npm --prefix ./client run build",
+    "build:server": "npm --prefix ./server run build",
     "lint:fix": "eslint ./ --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
     "lint:format": "prettier --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
     "lint": "npm run lint:format && npm run lint:fix"
   },
   "dependencies": {
     "@types/node": "^16.11.7",
-    "typescript": "^4.4.3"
+    "typescript": "^4.5.4"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "@typescript-eslint/parser": "^4.31.2",
-    "eslint": "^7.32.0",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^7.18.0",
-    "prettier": "^2.4.1"
+    "eslint-plugin-vue": "^8.2.0",
+    "prettier": "^2.5.1"
   },
   "eslintConfig": {
     "root": true,
@@ -60,11 +62,6 @@
       "defineEmits": "readonly",
       "defineExpose": "readonly",
       "withDefaults": "readonly"
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
     }
   }
 }

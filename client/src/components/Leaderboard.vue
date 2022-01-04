@@ -57,7 +57,7 @@
 
 <script setup lang="ts">
 import { onMounted, reactive } from "vue";
-import { SpeedrunData } from "../../../shared/models/speedrun-data";
+import { SpeedrunData } from "@shared/models/speedrun-data";
 import { getSpeedruns, submitSpeedrun } from "../api/speedruns";
 
 const props = defineProps<{ totalTime: number; username: string }>();
