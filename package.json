@@ -1,5 +1,5 @@
 {
-  "name": "vue-express-ts",
+  "name": "vue-express-template",
   "scripts": {
     "postinstall": "npm --prefix ./client install && npm --prefix ./server install",
     "dev:client": "npm --prefix ./client run dev",

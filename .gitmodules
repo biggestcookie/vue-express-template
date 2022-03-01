@@ -1,0 +1,6 @@
+[submodule "client"]
+	path = client
+	url = git@github.com:biggestcookie/vue-ts-template.git
+[submodule "server"]
+	path = server
+	url = git@github.com:biggestcookie/express-ts-template.git
