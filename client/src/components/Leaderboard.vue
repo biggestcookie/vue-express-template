@@ -1,3 +1,37 @@
+<script setup lang="ts">
+import { onMounted, reactive } from "vue";
+import { SpeedrunData } from "../../../shared/models/speedrun-data";
+import { getSpeedruns, submitSpeedrun } from "../api/speedruns";
+
+const props = defineProps<{ totalTime: number; username: string }>();
+
+const state = reactive({
+  submittedRun: {} as SpeedrunData,
+  topResults: [] as SpeedrunData[],
+  userResults: [] as SpeedrunData[],
+});
+
+onMounted(async () => {
+  state.submittedRun = await submitSpeedrun({
+    username: props.username,
+    totalTimeMilliseconds: Math.round(props.totalTime),
+  });
+  [state.topResults, state.userResults] = await Promise.all([
+    getSpeedruns(),
+    getSpeedruns(state.submittedRun.userId),
+  ]);
+});
+
+const msToElapsedString = (totalms: number): string => {
+  const ms = totalms % 1000;
+  const seconds = Math.floor((totalms / 1000) % 60);
+  const minutes = Math.floor((totalms / (1000 * 60)) % 60);
+  const hours = Math.floor((totalms / (1000 * 60 * 60)) % 24);
+
+  return `${hours ? hours + "h" : ""} ${minutes}m ${seconds}s ${ms}ms`;
+};
+</script>
+
 <template>
   <div className="content has-text-centered">
     <div className="block">
@@ -54,37 +88,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { onMounted, reactive } from "vue";
-import { SpeedrunData } from "@shared/models/speedrun-data";
-import { getSpeedruns, submitSpeedrun } from "../api/speedruns";
-
-const props = defineProps<{ totalTime: number; username: string }>();
-
-const state = reactive({
-  submittedRun: {} as SpeedrunData,
-  topResults: [] as SpeedrunData[],
-  userResults: [] as SpeedrunData[],
-});
-
-onMounted(async () => {
-  state.submittedRun = await submitSpeedrun({
-    username: props.username,
-    totalTimeMilliseconds: Math.round(props.totalTime),
-  });
-  [state.topResults, state.userResults] = await Promise.all([
-    getSpeedruns(),
-    getSpeedruns(state.submittedRun.userId),
-  ]);
-});
-
-const msToElapsedString = (totalms: number): string => {
-  const ms = totalms % 1000;
-  const seconds = Math.floor((totalms / 1000) % 60);
-  const minutes = Math.floor((totalms / (1000 * 60)) % 60);
-  const hours = Math.floor((totalms / (1000 * 60 * 60)) % 24);
-
-  return `${hours ? hours + "h" : ""} ${minutes}m ${seconds}s ${ms}ms`;
-};
-</script>

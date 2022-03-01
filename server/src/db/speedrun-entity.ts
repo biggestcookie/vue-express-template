@@ -1,6 +1,9 @@
-import { SpeedrunCreateData, SpeedrunData } from "@shared/models/speedrun-data";
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from ".";
+import {
+  SpeedrunCreateData,
+  SpeedrunData,
+} from "../../../shared/models/speedrun-data";
 
 interface SpeedrunInstance
   extends Model<SpeedrunData, SpeedrunCreateData>,

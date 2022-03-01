@@ -1,21 +1,17 @@
-import { API_PREFIX } from "@shared/constants";
+import { instance } from ".";
 import {
   SpeedrunCreateRequest,
   SpeedrunData,
-} from "@shared/models/speedrun-data";
-import axios from "axios";
-
-const instance = axios.create({
-  baseURL: `${API_PREFIX}/speedruns/`,
-  timeout: 10000,
-});
+} from "../../../shared/models/speedrun-data";
 
 export async function getSpeedruns(userId?: number): Promise<SpeedrunData[]> {
-  return (await instance.get(`/${userId ?? ""}`)).data;
+  const response = await instance.get(`/${userId ?? ""}`);
+  return response.data;
 }
 
 export async function submitSpeedrun(
   body: SpeedrunCreateRequest
 ): Promise<SpeedrunData> {
-  return (await instance.post("/submit", body)).data;
+  const response = await instance.post("/submit", body);
+  return response.data;
 }

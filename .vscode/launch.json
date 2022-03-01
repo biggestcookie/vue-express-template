@@ -8,7 +8,7 @@
       "name": "Server: Attach to process",
       "port": 9229,
       "request": "attach",
-      "skipFiles": ["<node_internals>/**"],
+      "skipFiles": ["<node_internals>/**", "node_modules/**"],
       "smartStep": true,
       "type": "pwa-node"
     },
@@ -18,6 +18,7 @@
       "request": "launch",
       "smartStep": true,
       "url": "http://localhost:3000",
+      "skipFiles": ["<node_internals>/**", "node_modules/**"],
       "webRoot": "${workspaceFolder}/client/src"
     }
   ]

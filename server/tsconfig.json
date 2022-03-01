@@ -1,25 +1,20 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es2020",
     "module": "commonjs",
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "importHelpers": true,
     "noImplicitAny": true,
-    "lib": ["esnext"],
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "moduleResolution": "node",
     "strict": true,
-    "strictNullChecks": false,
-    "inlineSourceMap": true,
+    "sourceMap": true,
     "outDir": "dist",
     "baseUrl": ".",
     "skipLibCheck": true,
     "paths": {
-      "*": ["node_modules/*", "src/types/*"],
-      "@shared/*": ["../shared/*"]
+      "*": ["node_modules/*", "src/types/*"]
     }
   },
   "include": ["./src/**/*", "../server/**/*"],

@@ -1,8 +1,8 @@
+import { Request, Response, Router } from "express";
 import {
   SpeedrunCreateRequest,
   SpeedrunData,
-} from "@shared/models/speedrun-data";
-import { Request, Response, Router } from "express";
+} from "../../../shared/models/speedrun-data";
 import { SpeedrunEntity } from "../db/speedrun-entity";
 import { UserEntity } from "../db/user-entity";
 
@@ -35,7 +35,7 @@ async function submitSpeedrun(
   request: Request<{}, {}, SpeedrunCreateRequest>,
   response: Response<SpeedrunData>
 ) {
-  const [userInstance, _] = await UserEntity.findOrCreate({
+  const [userInstance] = await UserEntity.findOrCreate({
     where: { username: request.body.username },
   });
 
