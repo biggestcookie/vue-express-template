@@ -16,15 +16,15 @@ This template repo exists as a monorepo template, allowing you to clone and depl
 
 1. Clone the project:
    - Generate your project from this template by clicking the 'Use this template' button, or [here](https://github.com/biggestcookie/vue-express-template/generate).
-   - If you're first cloning your repository, use this command to also pull the referenced submodules: 
-      ```
-      git clone --recursive your-forked-project-url.git
-      ```
-   - If you've already cloned your repository locally, use this command to pull the referenced submodules: 
-      ```
-      git submodule update --init --recursive
-      ```
-   - Remove all references to the original submodules by deleting the `.git` folder in the `client` and `server` folders.
+   - If you're first cloning your repository, use this command to also pull the referenced submodules:
+     ```
+     git clone --recursive your-forked-project-url.git
+     ```
+   - If you've already cloned your repository locally, use this command to pull the referenced submodules:
+     ```
+     git submodule update --init --recursive
+     ```
+   - Remove all references to the original submodules by deleting the `.git` folder in the `client` and `server` folders, deleting the root `.gitmodules` file, and running `git rm --cached client server`
    - Follow [these instructions](https://github.blog/2016-02-01-working-with-submodules/) if you wish to break out your `client` and `server` folders into their own submodule repositories.
 2. Run `npm install` in the root folder, which will install dependencies in the root and subproject folders.
 3. Run the dev servers for each app:
